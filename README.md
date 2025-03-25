@@ -5,11 +5,11 @@
 ---
 
 ### Студенты:
-- [Григорян Гагик](https://github.com/progerg)
-- [Лесных Иван](https://github.com/vanekForest)
-- [Подповетный Денис](https://github.com/paincake00)
-- [Шаталова Ангелина](https://github.com/angeelo4eek)
-- [Пауликайте Елона](https://github.com/tkjyf)
+- [Григорян Гагик](https://github.com/progerg) - СЕО, Backend разработчик, ML- инженер
+- [Лесных Иван](https://github.com/vanekForest) - СТО, Backend разработчик, ML- инженер
+- [Подповетный Денис](https://github.com/paincake00) - Frontend разработчик, Тестировщик
+- [Шаталова Ангелина](https://github.com/angeelo4eek) - Дизайнер, Технический Писатель
+- [Пауликайте Елона](https://github.com/tkjyf) - Бизнес-аналитик
 
 ---
 
