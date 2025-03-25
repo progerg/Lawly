@@ -1,9 +1,6 @@
-[submodule "client"]
-	path = client
-	url = https://github.com/progerg/Lawly-client.git
-    branch = main
-[submodule "server"]
-	path = server
+[submodule "Lawly-server"]
+	path = Lawly-server
 	url = https://github.com/progerg/Lawly-server.git
-	branch = main
-
+[submodule "Lawly-client"]
+	path = Lawly-client
+	url = https://github.com/progerg/Lawly-client.git
