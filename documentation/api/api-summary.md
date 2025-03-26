@@ -78,12 +78,6 @@ Swagger files:
 - `GenerateDocument` — генерация документа на основе данных пользователя
 - `GenerateCustomTemplate` — генерация кастомного шаблона на основе описания ситуации
 
-### chat service
-
-#### WebSocket методы
-- `StreamMessages` — стрим для получения новых сообщений в реальном времени
-- `MarkMessagesAsRead` — отправка статуса прочтения сообщений
-
 ### doc service <-> AI service
 
 #### Методы для работы с документами
