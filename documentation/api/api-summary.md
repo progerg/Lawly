@@ -16,6 +16,12 @@
 
 ## HTTP API и WebSocket
 
+Swagger files:
+
+1. [auth service](https://github.com/progerg/Lawly/blob/master/documentation/api/swagger-auth-service.yml)
+2. [chat service](https://github.com/progerg/Lawly/blob/master/documentation/api/swagger-chat-service.yml)
+3. [doc service](https://github.com/progerg/Lawly/blob/master/documentation/api/swagger-doc-service.yml)
+
 ### auth service (HTTP)
 
 #### Авторизация
@@ -59,6 +65,8 @@
   - `typing` — событие набора сообщения
 
 ## gRPC методы (межсервисное взаимодействие)
+
+- [Protobuf](https://github.com/progerg/Lawly/blob/master/documentation/api/grpc.proto)
 
 ### AI service
 
