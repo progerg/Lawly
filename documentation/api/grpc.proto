@@ -1,0 +1,106 @@
+// ai_service.proto
+syntax = "proto3";
+
+package ai;
+
+service AiService {
+  // Получение ответа от AI на сообщение пользователя в чате
+  rpc GenerateChatResponse(ChatRequest) returns (ChatResponse);
+  
+  // Улучшение текста (перевод с обычного языка на юридический)
+  rpc ImproveText(ImproveTextRequest) returns (ImproveTextResponse);
+  
+  // Генерация кастомного шаблона на основе описания ситуации
+  rpc GenerateCustomTemplate(CustomTemplateRequest) returns (CustomTemplateResponse);
+}
+
+message ChatRequest {
+  string user_id = 1;        // ID пользователя
+  string message = 2;         // Текст сообщения пользователя
+  repeated Message history = 3; // История диалога (предыдущие сообщения, ограниченный контекст)
+}
+
+message Message {
+  enum Role {
+    USER = 0;
+    ASSISTANT = 1;
+  }
+  Role role = 1;             // Роль отправителя сообщения
+  string content = 2;        // Содержимое сообщения
+  int64 timestamp = 3;       // Временная метка создания сообщения
+}
+
+message ChatResponse {
+  string message = 1;        // Ответ AI на сообщение пользователя
+  repeated string sources = 2; // Источники информации (если есть)
+}
+
+message ImproveTextRequest {
+  string text = 1;           // Текст для улучшения
+  string context = 2;        // Дополнительный контекст (опционально)
+}
+
+message ImproveTextResponse {
+  string improved_text = 1;  // Улучшенный текст в юридическом формате
+}
+
+message CustomTemplateRequest {
+  string user_id = 1;         // ID пользователя
+  string description = 2;     // Описание ситуации пользователем
+}
+
+message CustomTemplateResponse {
+  string template_content = 1; // Содержимое сгенерированного шаблона
+  repeated Field required_fields = 2; // Поля, которые нужно заполнить пользователю
+}
+
+message Field {
+  string name = 1;           // Имя поля
+  string value = 2;          // Значение поля
+}
+
+// doc_service_ai.proto
+syntax = "proto3";
+
+package doc;
+
+service DocAiService {
+  // Получение информации о структуре документа для AI
+  rpc GetDocumentStructure(DocumentStructureRequest) returns (DocumentStructureResponse);
+
+  // Улучшение текста для кастомных полей
+  rpc ImproveFieldText(FieldTextRequest) returns (FieldTextResponse);
+}
+
+message DocumentStructureRequest {
+  int64 document_id = 1;     // ID документа
+}
+
+message DocumentStructureResponse {
+  int64 document_id = 1;     // ID документа
+  string name = 2;           // Название документа
+  repeated FieldStructure fields = 3; // Структура полей документа
+}
+
+message FieldStructure {
+  int64 id = 1;              // ID поля
+  string name = 2;           // Имя поля
+  string display_name = 3;   // Отображаемое имя поля
+  enum FieldType {
+    STRING = 0;
+    DATE = 1;
+    NUMBER = 2;
+  }
+  FieldType type = 4;        // Тип поля
+}
+
+message FieldTextRequest {
+  string field_name = 1;     // Имя поля
+  string original_text = 2;  // Исходный текст
+  string context = 3;        // Дополнительный контекст
+}
+
+message FieldTextResponse {
+  string improved_text = 1;  // Улучшенный текст
+  bool success = 2;          // Флаг успешности операции
+}

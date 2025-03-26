@@ -1,0 +1,537 @@
+openapi: 3.0.0
+info:
+  title: Doc Service API
+  description: API для работы с документами и шаблонами
+  version: 1.0.0
+servers:
+  - url: /api/v1/docs
+    description: Doc Service API
+
+paths:
+  /templates:
+    get:
+      summary: Получение списка шаблонов
+      description: Получение доступных шаблонов документов с возможностью поиска
+      tags:
+        - Шаблоны
+      parameters:
+        - name: query
+          in: query
+          description: Поисковый запрос
+          required: false
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: Максимальное количество возвращаемых шаблонов
+          required: false
+          schema:
+            type: integer
+            default: 20
+        - name: offset
+          in: query
+          description: Смещение для пагинации
+          required: false
+          schema:
+            type: integer
+            default: 0
+      responses:
+        '200':
+          description: Список шаблонов
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                    example: 45
+                    description: Общее количество шаблонов
+                  templates:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TemplateShort'
+
+  /templates/{template_id}:
+    get:
+      summary: Получение информации о шаблоне
+      description: Получение детальной информации о шаблоне, включая структуру полей
+      tags:
+        - Шаблоны
+      parameters:
+        - name: template_id
+          in: path
+          required: true
+          description: ID шаблона
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Данные шаблона
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TemplateDetail'
+        '404':
+          description: Шаблон не найден
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /templates/{template_id}/download:
+    get:
+      summary: Скачивание шаблона
+      description: Скачивание документа по указанному шаблону (для неавторизованных пользователей)
+      tags:
+        - Шаблоны
+      parameters:
+        - name: template_id
+          in: path
+          required: true
+          description: ID шаблона
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Документ успешно загружен
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Шаблон не найден
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /custom-template:
+    post:
+      summary: Создание кастомного шаблона
+      description: Создание документа на основе описания ситуации пользователем
+      tags:
+        - Шаблоны
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - description
+              properties:
+                description:
+                  type: string
+                  example: "Меня не хотят обратно забрать товар. Купил в интернет-магазине смартфон, обнаружил дефект на второй день."
+                  description: Описание ситуации пользователем
+      responses:
+        '200':
+          description: Шаблон успешно создан
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeneratedDocument'
+        '400':
+          description: Ошибка валидации данных
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /document-creation:
+    post:
+      summary: Начало процесса создания документа
+      description: Регистрация начала процесса создания документа пользователем
+      tags:
+        - Документы
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                template_id:
+                  type: integer
+                  format: int64
+                  description: ID шаблона (null для кастомного документа)
+                custom_name:
+                  type: string
+                  description: Название кастомного документа
+      responses:
+        '201':
+          description: Процесс создания документа зарегистрирован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentCreation'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /document-creation/{creation_id}:
+    put:
+      summary: Обновление статуса создания документа
+      description: Обновление информации о процессе создания документа
+      tags:
+        - Документы
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: creation_id
+          in: path
+          required: true
+          description: ID процесса создания
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  enum: [started, completed, error]
+                error_message:
+                  type: string
+                  description: Сообщение об ошибке (если status=error)
+      responses:
+        '200':
+          description: Статус успешно обновлен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentCreation'
+        '400':
+          description: Ошибка валидации данных
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Процесс создания не найден
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /documents:
+    get:
+      summary: Получение списка базовых документов пользователя
+      description: Получение списка базовых документов (паспорт, СНИЛС и т.д.)
+      tags:
+        - Документы
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Список документов пользователя
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DocumentType'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /document-structures:
+    get:
+      summary: Получение структуры всех базовых документов
+      description: Получение информации о полях для всех типов базовых документов
+      tags:
+        - Документы
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Структуры документов
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DocumentStructure'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /improve-text:
+    post:
+      summary: Улучшение текста
+      description: Преобразование обычного текста в юридический формат
+      tags:
+        - Документы
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - text
+              properties:
+                text:
+                  type: string
+                  example: "Купил телефон, он сломался через неделю."
+      responses:
+        '200':
+          description: Улучшенный текст
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  improved_text:
+                    type: string
+                    example: "Я, {ФИО}, приобрел мобильный телефон {модель} в магазине {название} {дата}. В ходе эксплуатации товара в течение одной недели мною был обнаружен существенный недостаток, выразившийся в {описание дефекта}."
+        '400':
+          description: Ошибка запроса
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    TemplateShort:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        name:
+          type: string
+          example: "Претензия на возврат товара"
+        name_ru:
+          type: string
+          example: "Претензия на возврат товара"
+        image_url:
+          type: string
+          format: uri
+          example: "https://storage.example.com/templates/1/image.jpg"
+
+    TemplateDetail:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        name:
+          type: string
+          example: "Претензия на возврат товара"
+        name_ru:
+          type: string
+          example: "Претензия на возврат товара"
+        description:
+          type: string
+          example: "Документ для возврата некачественного товара продавцу"
+        image_url:
+          type: string
+          format: uri
+          example: "https://storage.example.com/templates/1/image.jpg"
+        required_documents:
+          type: array
+          description: Список документов, необходимых для заполнения шаблона
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                example: 1
+              name:
+                type: string
+                example: "Паспорт"
+        custom_fields:
+          type: array
+          description: Дополнительные поля, не входящие в стандартные документы
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                example: "Причина возврата"
+              type:
+                type: string
+                enum: [date, str, number]
+                example: "str"
+
+    DocumentType:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: "Паспорт"
+        name_ru:
+          type: string
+          example: "Паспорт"
+        is_filled:
+          type: boolean
+          example: true
+          description: Заполнен ли документ пользователем
+
+    DocumentStructure:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: "Паспорт"
+        name_ru:
+          type: string
+          example: "Паспорт"
+        fields:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                format: int64
+                example: 1
+              name:
+                type: string
+                example: "lastname"
+              display_name:
+                type: string
+                example: "Фамилия"
+              type:
+                type: string
+                enum: [date, str, number]
+                example: "str"
+
+    FieldValue:
+      type: object
+      properties:
+        field_id:
+          type: integer
+          format: int64
+          example: 1
+        value:
+          type: string
+          example: "Иванов"
+
+    CustomFieldValue:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Причина возврата"
+        value:
+          type: string
+          example: "Обнаружен дефект экрана при включении устройства"
+
+    GeneratedDocument:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "doc-12345"
+        content:
+          type: string
+          example: "Претензия на возврат товара\n\nКому: ООО \"Магазин\"...\n..."
+        download_url:
+          type: string
+          format: uri
+          example: "https://storage.example.com/generated/doc-12345.docx"
+
+    DocumentCreation:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 12345
+        user_id:
+          type: integer
+          format: int64
+          example: 1
+        template_id:
+          type: integer
+          format: int64
+          example: 1
+          nullable: true
+        status:
+          type: string
+          enum: [started, completed, error]
+          example: "started"
+        start_date:
+          type: string
+          format: date-time
+          example: "2023-01-15T12:00:00Z"
+        end_date:
+          type: string
+          format: date-time
+          nullable: true
+        custom_name:
+          type: string
+          example: "Моя претензия"
+          nullable: true
+        error_message:
+          type: string
+          nullable: true
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: object

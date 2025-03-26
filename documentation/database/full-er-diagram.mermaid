@@ -1,0 +1,141 @@
+erDiagram
+    users ||--o{ subscribes : "оформляет"
+    users ||--o{ payments : "совершает"
+    users ||--o{ messages : "имеет"
+    users ||--o{ document_creation : "создает"
+    users ||--o{ lawyer_requests : "создает"
+    users ||--o{ document_reviews : "запрашивает"
+    users ||--o{ lawyers : "может_быть"
+    
+    tariffs ||--o{ subscribes : "используется_в"
+    
+    subscribes ||--o{ payments : "оплачивается_через"
+    
+    templates ||--o{ fields : "содержит"
+    templates ||--o{ document_creation : "используется_в"
+    
+    documents ||--o{ fields : "содержит"
+    
+    lawyers ||--o{ lawyer_requests : "обрабатывает"
+    lawyers ||--o{ document_reviews : "проверяет"
+    
+    users {
+        bigint id PK "GENERATED IDENTITY"
+        varchar(255) email "NOT NULL, UNIQUE"
+        text password_hash "NOT NULL"
+        timestamp created_at "DEFAULT now()"
+        varchar(255) name "NOT NULL"
+    }
+    
+    lawyers {
+        bigint id PK "GENERATED IDENTITY"
+        bigint user_id FK "UNIQUE"
+        timestamp created_at "DEFAULT now()"
+    }
+    
+    tariffs {
+        bigint id PK "GENERATED IDENTITY"
+        varchar(255) name "NOT NULL"
+        text description
+        int price "NOT NULL"
+        int consultations_count "DEFAULT 0"
+        boolean ai_access "DEFAULT false"
+        boolean custom_templates "DEFAULT false"
+        boolean unlimited_docs "DEFAULT false"
+    }
+    
+    subscribes {
+        bigint id PK "GENERATED IDENTITY"
+        bigint user_id FK
+        bigint tariff_id FK
+        timestamp start_date "NOT NULL"
+        timestamp end_date "NOT NULL"
+        int count_lawyer "DEFAULT 0"
+        int consultations_total "DEFAULT 0"
+        int consultations_used "DEFAULT 0"
+        boolean can_use_ai "DEFAULT false"
+        boolean can_create_custom_templates "DEFAULT false"
+        boolean unlimited_documents "DEFAULT false"
+    }
+    
+    payments {
+        bigint id PK "GENERATED IDENTITY"
+        timestamp created_at "DEFAULT now()"
+        int amount "NOT NULL"
+        payment_status status "NOT NULL"
+        bigint user_id FK
+        bigint subscribe_id FK
+    }
+    
+    documents {
+        bigint id PK "GENERATED IDENTITY"
+        varchar(255) name "NOT NULL"
+        varchar(255) name_ru "NOT NULL"
+        text link "NOT NULL"
+        text description
+    }
+    
+    templates {
+        bigint id PK "GENERATED IDENTITY"
+        varchar(255) name "NOT NULL"
+        varchar(255) name_ru "NOT NULL"
+        text description
+        text image_url
+    }
+    
+    fields {
+        bigint id PK "GENERATED IDENTITY"
+        varchar(255) name "NOT NULL"
+        field_type type "NOT NULL"
+        bigint document_id FK
+        bigint template_id FK
+    }
+    
+    document_creation {
+        bigint id PK "GENERATED IDENTITY"
+        bigint user_id FK "NOT NULL"
+        bigint template_id FK "NULL (для кастомных)"
+        document_status status "NOT NULL"
+        timestamp start_date "DEFAULT now()"
+        timestamp end_date
+        text custom_name
+        text error_message
+    }
+    
+    messages {
+        bigint id PK "GENERATED IDENTITY"
+        bigint user_id FK "NOT NULL"
+        chat_type chat_type "NOT NULL"
+        message_sender_type sender_type "NOT NULL"
+        bigint sender_id "NULL (если не lawyer)"
+        text content "NOT NULL"
+        timestamp created_at "DEFAULT now()"
+        message_status status "DEFAULT 'sent'"
+        timestamp read_at
+    }
+    
+    lawyer_requests {
+        bigint id PK "GENERATED IDENTITY"
+        bigint user_id FK "NOT NULL"
+        bigint lawyer_id FK
+        lawyer_request_status status "DEFAULT 'pending'"
+        timestamp created_at "DEFAULT now()"
+        timestamp updated_at "DEFAULT now()"
+        text document_content "Текст документа"
+        text document_url "Ссылка на S3"
+        timestamp estimated_response_time
+        text note "Заметки юриста"
+    }
+    
+    document_reviews {
+        bigint id PK "GENERATED IDENTITY"
+        bigint user_id FK "NOT NULL"
+        bigint lawyer_id FK
+        text document_content "NOT NULL"
+        text document_url "Ссылка на S3"
+        document_review_status status "DEFAULT 'pending'"
+        timestamp created_at "DEFAULT now()"
+        timestamp updated_at "DEFAULT now()"
+        text feedback
+        text corrected_document_url "Ссылка на S3"
+    }

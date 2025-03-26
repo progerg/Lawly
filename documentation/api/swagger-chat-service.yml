@@ -1,0 +1,317 @@
+openapi: 3.0.0
+info:
+  title: Chat Service API
+  description: API для взаимодействия с чатами (AI-помощник и юристы)
+  version: 1.0.0
+servers:
+  - url: /api/v1/chat
+    description: Chat Service API
+
+paths:
+  /ai/messages:
+    get:
+      summary: Получение сообщений из чата с AI
+      description: Получение сообщений из чата с AI-помощником с фильтрацией по датам
+      tags:
+        - AI-помощник
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: from_date
+          in: query
+          description: Начальная дата для выборки сообщений (включительно)
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: to_date
+          in: query
+          description: Конечная дата для выборки сообщений (включительно)
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: limit
+          in: query
+          description: Максимальное количество сообщений
+          required: false
+          schema:
+            type: integer
+            default: 50
+        - name: offset
+          in: query
+          description: Смещение для пагинации
+          required: false
+          schema:
+            type: integer
+            default: 0
+      responses:
+        '200':
+          description: История сообщений
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                    example: 45
+                    description: Общее количество сообщений в выбранном диапазоне
+                  has_more:
+                    type: boolean
+                    example: true
+                    description: Флаг наличия дополнительных сообщений
+                  messages:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Message'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Доступ запрещен (нет активной подписки)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+    post:
+      summary: Отправка сообщения AI-помощнику
+      description: Отправка нового сообщения в чат с AI
+      tags:
+        - AI-помощник
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - content
+              properties:
+                content:
+                  type: string
+                  example: "Как мне составить претензию на возврат товара?"
+      responses:
+        '201':
+          description: Сообщение успешно отправлено
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Доступ запрещен (нет активной подписки)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /lawyer/messages:
+    get:
+      summary: Получение сообщений из чата с юристом
+      description: Получение сообщений из чата с юристом с фильтрацией по датам
+      tags:
+        - Юридические консультации
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: from_date
+          in: query
+          description: Начальная дата для выборки сообщений (включительно)
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: to_date
+          in: query
+          description: Конечная дата для выборки сообщений (включительно)
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: limit
+          in: query
+          description: Максимальное количество сообщений
+          required: false
+          schema:
+            type: integer
+            default: 50
+        - name: offset
+          in: query
+          description: Смещение для пагинации
+          required: false
+          schema:
+            type: integer
+            default: 0
+      responses:
+        '200':
+          description: История сообщений
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                    example: 45
+                    description: Общее количество сообщений в выбранном диапазоне
+                  has_more:
+                    type: boolean
+                    example: true
+                    description: Флаг наличия дополнительных сообщений
+                  messages:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Message'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /lawyer/request:
+    post:
+      summary: Создание обращения к юристу
+      description: Создание нового обращения к юристу для консультации
+      tags:
+        - Юридические консультации
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - message
+              properties:
+                message:
+                  type: string
+                  example: "Необходима консультация по вопросу возврата товара."
+                document_url:
+                  type: string
+                  format: uri
+                  example: "https://storage.example.com/documents/doc-12345.pdf"
+                  description: Ссылка на документ в S3, если обращение связано с проверкой документа
+      responses:
+        '201':
+          description: Обращение успешно создано
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Доступ запрещен (нет подписки или исчерпан лимит консультаций)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /lawyer/status:
+    get:
+      summary: Получение статуса обработки обращения к юристу
+      description: Проверка текущего статуса обращения к юристу
+      tags:
+        - Юридические консультации
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Статус обращения
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum: [no_request, pending, in_progress, available]
+                    example: "in_progress"
+                    description: Статус обращения к юристу
+                  lawyer_name:
+                    type: string
+                    example: "Петров А.И."
+                    description: Имя юриста, принявшего обращение (если есть)
+                  estimated_response_time:
+                    type: string
+                    format: date-time
+                    nullable: true
+                    description: Ожидаемое время ответа (если доступно)
+                  consultations_left:
+                    type: integer
+                    example: 2
+                    description: Количество оставшихся консультаций (для тарифов с ограничением)
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    Message:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "msg-12345"
+        sender_type:
+          type: string
+          enum: [user, ai, lawyer]
+          example: "user"
+        sender_id:
+          type: string
+          example: "user-123"
+          description: ID отправителя (для юристов)
+        sender_name:
+          type: string
+          example: "Иванов И.И."
+          description: Имя отправителя (для юристов)
+        content:
+          type: string
+          example: "Как мне составить претензию на возврат товара?"
+        created_at:
+          type: string
+          format: date-time
+          example: "2023-01-15T12:00:00Z"
+        status:
+          type: string
+          enum: [sent, delivered, read]
+          example: "delivered"
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: object
