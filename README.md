@@ -31,7 +31,8 @@ Lawly — это юридический помощник, который авт�
 - [Описание всей технической части проекта (swagger, grpc, etc)](https://github.com/progerg/Lawly/blob/master/documentation/api/api-summary.md)
 - [Roadmap](https://github.com/progerg/Lawly/blob/master/documentation/roadmap.png)
 - [Предпроектное исследование](https://github.com/progerg/Lawly/blob/master/documentation/presentation/pre-project-research.docx)
-- Техническое задание
+- [Техническое задание](https://github.com/progerg/Lawly/blob/master/documentation/tech_requirements_lawly.docx)
+- [Брендбук](https://github.com/progerg/Lawly/blob/master/documentation/brandbook.pdf)
 
 ---
 
