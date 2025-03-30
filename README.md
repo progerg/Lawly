@@ -33,8 +33,8 @@ Lawly — это юридический помощник, который авт�
 ### Документация
 - [Описание всей технической части проекта (swagger, grpc, etc)](https://github.com/progerg/Lawly/blob/master/documentation/api/api-summary.md)
 - [Roadmap](https://github.com/progerg/Lawly/blob/master/documentation/roadmap.png)
-- [Предпроектное исследование](https://github.com/progerg/Lawly/blob/master/documentation/presentation/pre-project-research.docx)
-- [Техническое задание](https://github.com/progerg/Lawly/blob/master/documentation/tech_requirements_lawly.docx)
+- Предпроектное исследование [.docx](https://github.com/progerg/Lawly/blob/master/documentation/presentation/pre-project-research.docx) [.pdf](https://github.com/progerg/Lawly/blob/master/documentation/presentation/pre-project-research.pdf)
+- Техническое задание [.docx](https://github.com/progerg/Lawly/blob/master/documentation/tech_requirements_lawly.docx) [.pdf](https://github.com/progerg/Lawly/blob/master/documentation/tech_requirements_lawly.pdf)
 - [Брендбук](https://github.com/progerg/Lawly/blob/master/documentation/brandbook.pdf)
 
 ---
@@ -55,7 +55,7 @@ Lawly — это юридический помощник, который авт�
 - [Правила коммитов](https://github.com/progerg/Lawly/blob/master/documentation/commits/README.md)
 
 ## Чек-листы
-[Чек-лист 1 этап](https://docs.google.com/spreadsheets/d/1N2VNP7KQ8e5stoPP6Exh-BIzoYfDbmXog0uCsfQPa2w/edit?gid=116236438#gid=116236438)
+[Чек-лист 1 этап](https://github.com/progerg/Lawly/blob/master/documentation/checklist.pdf)
 
 #### Нас оценивали
 * Команда 1.3 [Git](https://github.com/Aleygv/Fishing_game) [Чек-лист](https://docs.google.com/spreadsheets/d/1u5pm8Rp8lp9xEYSzHtrhVUy3dhCtAyKt3cOX3YMu4Kk/edit?gid=116236438#gid=116236438) 
