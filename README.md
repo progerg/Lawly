@@ -53,3 +53,12 @@ Lawly — это юридический помощник, который авт�
 
 ### Правила ведения репозитория
 - [Правила коммитов](https://github.com/progerg/Lawly/blob/master/documentation/commits/README.md)
+
+## Чек-листы
+[Чек-лист 1 этап](https://docs.google.com/spreadsheets/d/1N2VNP7KQ8e5stoPP6Exh-BIzoYfDbmXog0uCsfQPa2w/edit?gid=116236438#gid=116236438)
+
+#### Нас оценивали
+* Команда 1.3 [Git](https://github.com/Aleygv/Fishing_game) [Чек-лист](https://docs.google.com/spreadsheets/d/1u5pm8Rp8lp9xEYSzHtrhVUy3dhCtAyKt3cOX3YMu4Kk/edit?gid=116236438#gid=116236438) 
+* Команда 2.1 [Git](https://github.com/2group1team/VoiceChef) [Чек-лист](https://docs.google.com/spreadsheets/d/1yGnLquVTxPcGxP5yg3C9UTXUARwv2YGHegqEgPNnFWM/edit?gid=116236438#gid=116236438) 
+* Команда 1.1 [Git](https://gitlab.minecraftslaves.duckdns.org/graphontext/markethelp) [Чек-лист](https://docs.google.com/spreadsheets/d/1TkkNAfymy03UyZurFbbVLIurNk5RJR-yKNPpU5rKRvw/edit?gid=116236438#gid=116236438) 
+* Команда 7.1 [Git](https://github.com/TP-RENTPLACE) [Чек-лист](https://docs.google.com/spreadsheets/d/1r2W3ESucHYqHt9EIde8zMcXfnE4Rkdm6M4u-kaQfG74/edit?gid=116236438#gid=116236438) 
