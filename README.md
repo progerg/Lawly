@@ -23,8 +23,11 @@ Lawly — это юридический помощник, который авт�
 ### Сервисы
 - [UML диаграммы и пользовательские сценарии (Miro)](https://miro.com/welcomeonboard/b2pROUNhWkhKWnRkdkZ3UHJyZGZDUjdYWUhLSXRaaUlrMDVEcFhBTlBLbTArTnNwSlIwdXRmcTNBbnJGMWdJaGRTVXI5clVOUXJEODNDS2xvSFlhd2FWT1RMMUtVY1M3cC9DamZtVUc3RWZvYXVraGV6ZGNwMFJyWFBNcENwT2pnbHpza3F6REdEcmNpNEFOMmJXWXBBPT0hdjE=?share_link_id=323294137899)
 - [Jira - таск менеджер](https://zazc256.atlassian.net/jira/software/projects/KAN/boards/1)
+  Аккаунт для просмотра (данные от аккаунта google и jira):
+  Логин: lawly261@gmail.com
+  Пароль: Qwerty123!!!
 - [Figma - дизайн](https://www.figma.com/design/6As6EdTa5vWVvQTLlEPYPT/Lawly?node-id=0-1&p=f&t=WTbtIfq3mO8jgJ1Q-0)
-
+  
 ---
 
 ### Документация
