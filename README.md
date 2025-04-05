@@ -62,3 +62,8 @@ Lawly — это юридический помощник, который авт�
 * Команда 2.1 [Git](https://github.com/2group1team/VoiceChef) [Чек-лист](https://docs.google.com/spreadsheets/d/1yGnLquVTxPcGxP5yg3C9UTXUARwv2YGHegqEgPNnFWM/edit?gid=116236438#gid=116236438) 
 * Команда 1.1 [Git](https://gitlab.minecraftslaves.duckdns.org/graphontext/markethelp) [Чек-лист](https://gitlab.minecraftslaves.duckdns.org/graphontext/markethelp/-/blob/main/specification/check/ВГУ-ТП.%20Чеклист%201%20этап%201г1к%20-%20чеклист.pdf) 
 * Команда 7.1 [Git](https://github.com/TP-RENTPLACE) [Чек-лист](https://docs.google.com/spreadsheets/d/1r2W3ESucHYqHt9EIde8zMcXfnE4Rkdm6M4u-kaQfG74/edit?gid=116236438#gid=116236438) 
+
+
+## Еженедельные отчеты
+
+- [31.03.2025-06.04.2025](https://github.com/progerg/Lawly/blob/master/documentation/reports/31_03_2025_06_04_2025.pdf)
