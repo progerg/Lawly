@@ -70,6 +70,7 @@ Lawly — это юридический помощник, который авт�
 - [07.04.2025-13.04.2025](https://github.com/progerg/Lawly/blob/master/documentation/reports/07_04_2025_13_04_2025.pdf)
 - [14.04.2025-20.04.2025](https://github.com/progerg/Lawly/blob/master/documentation/reports/14_04_2025_20_04_2025.pdf)
 - [21.04.2025-27.04.2025](https://github.com/progerg/Lawly/blob/master/documentation/reports/21_04_2025_27_04_2025.pdf)
+- [28.04.2025-04.05.2025](https://github.com/progerg/Lawly/blob/master/documentation/reports/28_04_2025_04_05_2025.pdf)
 
 
 ## Тестовая стратегия
