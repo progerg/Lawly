@@ -37,6 +37,7 @@ Lawly — это юридический помощник, который авт�
 - Предпроектное исследование [.docx](https://github.com/progerg/Lawly/blob/master/documentation/presentation/pre-project-research.docx) [.pdf](https://github.com/progerg/Lawly/blob/master/documentation/presentation/pre-project-research.pdf)
 - Техническое задание [.docx](https://github.com/progerg/Lawly/blob/master/documentation/tech_requirements_lawly.docx) [.pdf](https://github.com/progerg/Lawly/blob/master/documentation/tech_requirements_lawly.pdf)
 - [Брендбук](https://github.com/progerg/Lawly/blob/master/documentation/brandbook.pdf)
+- В Lawly-client необходимо перейти на ветку dev, так как submodule github некорректно отображает
 
 ---
 
@@ -57,6 +58,7 @@ Lawly — это юридический помощник, который авт�
 
 ## Чек-листы
 [Чек-лист 1 этап](https://github.com/progerg/Lawly/blob/master/documentation/checklist.pdf)
+[Чек-лист 2 этап](https://github.com/progerg/Lawly/blob/master/documentation/checklist-2.pdf)
 
 #### Нас оценивали
 * Команда 1.3 [Git](https://github.com/Aleygv/Fishing_game) [Чек-лист 1 этап](https://docs.google.com/spreadsheets/d/1u5pm8Rp8lp9xEYSzHtrhVUy3dhCtAyKt3cOX3YMu4Kk/edit?gid=116236438#gid=116236438) 
