@@ -6,8 +6,9 @@
 Lawly — это юридический помощник, который автоматизирует создание документов и предоставляет консультации через AI и юристов. Приложение позволяет пользователям быстро генерировать юридические документы, получать советы и проверку документов. Это удобное решение для фрилансеров, малого бизнеса и людей, которым нужны доступные юридические услуги.
 
 - [Видео по проекту](https://rutube.ru/video/private/124aeb593dbfd6ab7b07de65c481be95/?p=J6eRn2oR-0jZcl45cf4AYg)
+- [Видеоотчет по 2 этапу](https://rutube.ru/video/private/798eeb4fd604ef26d32413489d9ab928/?p=jCoxNdsmu9zUfF4cwXWkLQ)
 - [Презентация](https://github.com/progerg/Lawly/blob/master/documentation/presentation/presentation.pdf)
-
+- Презентация по 2 этапу [.pdf](https://github.com/progerg/Lawly/blob/master/documentation/presentation/Lawly_2.pdf) [.pptx](https://github.com/progerg/Lawly/blob/master/documentation/presentation/Lawly_2.pptx)
 
 ---
 
@@ -58,10 +59,10 @@ Lawly — это юридический помощник, который авт�
 [Чек-лист 1 этап](https://github.com/progerg/Lawly/blob/master/documentation/checklist.pdf)
 
 #### Нас оценивали
-* Команда 1.3 [Git](https://github.com/Aleygv/Fishing_game) [Чек-лист](https://docs.google.com/spreadsheets/d/1u5pm8Rp8lp9xEYSzHtrhVUy3dhCtAyKt3cOX3YMu4Kk/edit?gid=116236438#gid=116236438) 
-* Команда 2.1 [Git](https://github.com/2group1team/VoiceChef) [Чек-лист](https://docs.google.com/spreadsheets/d/1yGnLquVTxPcGxP5yg3C9UTXUARwv2YGHegqEgPNnFWM/edit?gid=116236438#gid=116236438) 
-* Команда 1.1 [Git](https://gitlab.minecraftslaves.duckdns.org/graphontext/markethelp) [Чек-лист](https://gitlab.minecraftslaves.duckdns.org/graphontext/markethelp/-/blob/main/specification/check/ВГУ-ТП.%20Чеклист%201%20этап%201г1к%20-%20чеклист.pdf) 
-* Команда 7.1 [Git](https://github.com/TP-RENTPLACE) [Чек-лист](https://docs.google.com/spreadsheets/d/1r2W3ESucHYqHt9EIde8zMcXfnE4Rkdm6M4u-kaQfG74/edit?gid=116236438#gid=116236438) 
+* Команда 1.3 [Git](https://github.com/Aleygv/Fishing_game) [Чек-лист 1 этап](https://docs.google.com/spreadsheets/d/1u5pm8Rp8lp9xEYSzHtrhVUy3dhCtAyKt3cOX3YMu4Kk/edit?gid=116236438#gid=116236438) 
+* Команда 2.1 [Git](https://github.com/2group1team/VoiceChef) [Чек-лист 1 этап](https://docs.google.com/spreadsheets/d/1yGnLquVTxPcGxP5yg3C9UTXUARwv2YGHegqEgPNnFWM/edit?gid=116236438#gid=116236438) 
+* Команда 1.1 [Git](https://gitlab.minecraftslaves.duckdns.org/graphontext/markethelp) [Чек-лист 1 этап](https://gitlab.minecraftslaves.duckdns.org/graphontext/markethelp/-/blob/main/specification/check/ВГУ-ТП.%20Чеклист%201%20этап%201г1к%20-%20чеклист.pdf) 
+* Команда 7.1 [Git](https://github.com/TP-RENTPLACE) [Чек-лист 1 этап](https://docs.google.com/spreadsheets/d/1r2W3ESucHYqHt9EIde8zMcXfnE4Rkdm6M4u-kaQfG74/edit?gid=116236438#gid=116236438) 
 
 
 ## Еженедельные отчеты
@@ -72,6 +73,11 @@ Lawly — это юридический помощник, который авт�
 - [21.04.2025-27.04.2025](https://github.com/progerg/Lawly/blob/master/documentation/reports/21_04_2025_27_04_2025.pdf)
 - [28.04.2025-04.05.2025](https://github.com/progerg/Lawly/blob/master/documentation/reports/28_04_2025_04_05_2025.pdf)
 
+## Итоговые отчеты PM
+- [31.03.2025-05.05.2025](https://github.com/progerg/Lawly/blob/master/documentation/reports/final_report_31_03_2025_05_05_2025.pdf)
+
+## Админ панель для просмотра таблиц
+- [Логин: kolya Пароль: kolya](https://admin.lawly.ru/login)
 
 ## Тестовая стратегия
 - [Файл тестовой стратегии](https://github.com/progerg/Lawly/blob/master/documentation/test_strategy.pdf)
