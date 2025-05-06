@@ -73,8 +73,9 @@ Lawly — это юридический помощник, который авт�
 - [21.04.2025-27.04.2025](https://github.com/progerg/Lawly/blob/master/documentation/reports/21_04_2025_27_04_2025.pdf)
 - [28.04.2025-04.05.2025](https://github.com/progerg/Lawly/blob/master/documentation/reports/28_04_2025_04_05_2025.pdf)
 
-## Итоговые отчеты PM
-- [31.03.2025-05.05.2025](https://github.com/progerg/Lawly/blob/master/documentation/reports/final_report_31_03_2025_05_05_2025.pdf)
+## Итоговые отчеты
+- [PM 31.03.2025-05.05.2025](https://github.com/progerg/Lawly/blob/master/documentation/reports/final_report_31_03_2025_05_05_2025.pdf)
+- [Tester 14.04.2025-05.05.2025](https://github.com/progerg/Lawly/blob/master/documentation/reports/test_report.pdf)
 
 ## Админ панель для просмотра таблиц
 - [Логин: kolya Пароль: kolya](https://admin.lawly.ru/login)
