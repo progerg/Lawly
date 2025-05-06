@@ -66,6 +66,12 @@ Lawly — это юридический помощник, который авт�
 * Команда 1.1 [Git](https://gitlab.minecraftslaves.duckdns.org/graphontext/markethelp) [Чек-лист 1 этап](https://gitlab.minecraftslaves.duckdns.org/graphontext/markethelp/-/blob/main/specification/check/ВГУ-ТП.%20Чеклист%201%20этап%201г1к%20-%20чеклист.pdf) 
 * Команда 7.1 [Git](https://github.com/TP-RENTPLACE) [Чек-лист 1 этап](https://docs.google.com/spreadsheets/d/1r2W3ESucHYqHt9EIde8zMcXfnE4Rkdm6M4u-kaQfG74/edit?gid=116236438#gid=116236438) 
 
+#### Нас оценивали 2 этап
+* Команда 1.3 [Git](https://github.com/Aleygv/Fishing_game) [Чек-лист 2 этап](https://github.com/Aleygv/Fishing_game/blob/main/Documents/%D0%A7%D0%B5%D0%BA-%D0%BB%D0%B8%D1%81%D1%82%202%D0%B9%20%D1%8D%D1%82%D0%B0%D0%BF.pdf) 
+* Команда 2.1 [Git](https://github.com/2group1team/VoiceChef) [Чек-лист 2 этап]
+* Команда 1.1 [Git](https://gitlab.minecraftslaves.duckdns.org/graphontext/markethelp) [Чек-лист 2 этап](https://github.com/MarketHelp/MarketHelp/blob/main/specification/check/ВГУ-ТП.%20Чеклист%202%20этап%201г1к.pdf) 
+* Команда 7.1 [Git](https://github.com/TP-RENTPLACE) [https://github.com/TP-RENTPLACE/RENTPLACE/blob/main/%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F/%D0%A7%D0%B5%D0%BA-%D0%BB%D0%B8%D1%81%D1%82%202%20%D1%8D%D1%82%D0%B0%D0%BF.pdf) 
+
 
 ## Еженедельные отчеты
 
