@@ -38,6 +38,7 @@ Lawly — это юридический помощник, который авт�
 - Техническое задание [.docx](https://github.com/progerg/Lawly/blob/master/documentation/tech_requirements_lawly.docx) [.pdf](https://github.com/progerg/Lawly/blob/master/documentation/tech_requirements_lawly.pdf)
 - [Брендбук](https://github.com/progerg/Lawly/blob/master/documentation/brandbook.pdf)
 - В Lawly-client необходимо перейти на ветку dev, так как submodule github некорректно отображает
+- Дополнительное соглашение к техническому заданию [.docx](https://github.com/progerg/Lawly/blob/master/documentation/Dop_soglashenie.docx)
 
 ---
 
