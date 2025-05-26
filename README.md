@@ -53,6 +53,8 @@ Lawly — это юридический помощник, который авт�
 | UI/UX       | Figma             |
 | Диаграммы   | Miro              |
 
+### Стек технологий
+- [lawly-APK](https://drive.google.com/file/d/1QEw3Mm9PM333b5Vv-rS6W6z8UHmwFBn5/view?usp=sharing)
 
 ### Правила ведения репозитория
 - [Правила коммитов](https://github.com/progerg/Lawly/blob/master/documentation/commits/README.md)
