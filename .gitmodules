@@ -1,7 +1,0 @@
-[submodule "Lawly-client"]
-	path = Lawly-client
-	url = https://github.com/progerg/Lawly-client.git
-	branch = dev
-[submodule "backend-readme"]
-	path = backend-readme
-	url = https://github.com/Lawly-code/backend-readme
