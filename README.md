@@ -10,6 +10,21 @@ Lawly — это юридический помощник, который авт�
 - [Презентация](https://github.com/progerg/Lawly/blob/master/documentation/presentation/presentation.pdf)
 - Презентация по 2 этапу [.pdf](https://github.com/progerg/Lawly/blob/master/documentation/presentation/Lawly_2.pdf) [.pptx](https://github.com/progerg/Lawly/blob/master/documentation/presentation/Lawly_2.pptx)
 
+
+### Существующие репозитории:
+- [Lawly mobile](https://github.com/progerg/Lawly-client)
+- [User service](https://github.com/Lawly-code/auth/tree/development)
+- [Document service](https://github.com/Lawly-code/document/tree/development)
+- [Chat service](https://github.com/Lawly-code/chat/tree/development)
+- [AI service](https://github.com/Lawly-code/ai-service/tree/development)
+- [GRPC контракты и клиенты](https://github.com/Lawly-code/protos)
+- [Модели БД в либе](https://github.com/Lawly-code/database)
+- [Админ](https://github.com/Lawly-code/admin)
+- [Notifications service](https://github.com/Lawly-code/notification-service)
+- [Lawyer panel](https://github.com/Lawly-code/lawyer-panel)
+- [Schedule service](https://github.com/Lawly-code/schedule)
+- [Utils](https://github.com/Lawly-code/utils)
+
 ---
 
 ### Студенты:
